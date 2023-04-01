@@ -65,7 +65,11 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       width: double.infinity,
-                      child: BtnWidget('Login', redColor, whiteColor, () {}),
+                      child: BtnWidget(
+                          label: 'Login',
+                          backgroundColor: Colors.red,
+                          textColor: whiteColor,
+                          onPressed: () => Get.toNamed(home)),
                     ),
                     SizedBox(
                       height: 5.h,
@@ -77,8 +81,11 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       width: double.infinity,
-                      child: BtnWidget('Sign up', lightGolden, redColor,
-                          () => Get.toNamed(signup)),
+                      child: BtnWidget(
+                          label: 'Sign up',
+                          backgroundColor: lightGolden,
+                          textColor: redColor,
+                          onPressed: () => Get.toNamed(signup)),
                     ),
                     SizedBox(
                       height: 5.h,

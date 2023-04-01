@@ -8,6 +8,8 @@ import 'package:hayyat_mart_app/ui/widgets/rich_text_widget.dart';
 import 'package:hayyat_mart_app/ui/widgets/textstyle_widget.dart';
 
 class SignupScreen extends StatelessWidget {
+  RxBool isChecked = false.obs;
+
   @override
   Widget build(BuildContext context) {
     return BgWidget(
@@ -63,10 +65,14 @@ class SignupScreen extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Checkbox(
-                          value: false,
-                          onChanged: (n) {},
-                          checkColor: redColor,
+                        Obx(
+                          () => Checkbox(
+                            value: isChecked.value,
+                            onChanged: (value) {
+                              isChecked.value = value!;
+                            },
+                            activeColor: redColor,
+                          ),
                         ),
                         Expanded(
                             child: RichTextWidget(
@@ -78,7 +84,7 @@ class SignupScreen extends StatelessWidget {
                           color2: fontGrey,
                           text3: "Privacy Policy",
                           color3: redColor,
-                          fontFamily: bold,
+                          fontFamily: regular,
                         ))
                       ],
                     ),
@@ -86,9 +92,14 @@ class SignupScreen extends StatelessWidget {
                       height: 8.h,
                     ),
                     SizedBox(
-                      width: double.infinity,
-                      child: BtnWidget('Login', redColor, whiteColor, () {}),
-                    ),
+                        width: double.infinity,
+                        child: Obx(() => BtnWidget(
+                              label: 'Sign up',
+                              backgroundColor: isChecked.value == true
+                                  ? redColor
+                                  : lightGrey,
+                              textColor: whiteColor,
+                            ))),
                     RichTextWidget(
                       text: "Already have an account? ",
                       color: fontGrey,
