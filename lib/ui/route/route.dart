@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:hayyat_mart_app/ui/views/auth/login_screen.dart';
 import 'package:hayyat_mart_app/ui/views/auth/signup_screen.dart';
-import 'package:hayyat_mart_app/ui/views/home_screen.dart';
+import 'package:hayyat_mart_app/ui/views/home/bottom_nav_controller.dart';
 import 'package:hayyat_mart_app/ui/views/splash_screen.dart';
 
 const splash = '/splash-screen';
@@ -31,7 +31,7 @@ List<GetPage> getPages = [
   GetPage(name: signin, page: () => LoginScreen()),
   // GetPage(name: userForm, page: () => UserFormScreen()),
   // GetPage(name: privacyPolicy, page: () => PrivacyPolicyScreen()),
-  GetPage(name: home, page: () => HomeScreen()),
+  GetPage(name: home, page: () => Home()),
   // GetPage(name: faq, page: () => Faq()),
   // GetPage(name: rateUs, page: () => Faq()),
   // GetPage(name: support, page: () => Support()),

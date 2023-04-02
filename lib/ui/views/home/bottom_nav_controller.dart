@@ -1,6 +1,10 @@
 import 'package:hayyat_mart_app/consts/consts.dart';
+import 'package:hayyat_mart_app/ui/views/cart/cart_screen.dart';
+import 'package:hayyat_mart_app/ui/views/category/category_screen.dart';
+import 'package:hayyat_mart_app/ui/views/home/home_screen.dart';
+import 'package:hayyat_mart_app/ui/views/profile/profile_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var navBarItems = [
@@ -31,18 +35,10 @@ class HomeScreen extends StatelessWidget {
     ];
     var _currentIndex = 0.obs;
     var _pages = [
-      Container(
-        color: Colors.green,
-      ),
-      Container(
-        color: Colors.red,
-      ),
-      Container(
-        color: Colors.grey,
-      ),
-      Container(
-        color: Colors.lightGreen,
-      ),
+      const HomeScreen(),
+      const CategoryScreen(),
+      const CartScreen(),
+      const ProfileScreen()
     ];
 
     return Scaffold(
@@ -53,7 +49,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: whiteColor,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: redColor,
-          unselectedItemColor: Colors.grey,
+          //unselectedItemColor: Colors.grey,
           selectedLabelStyle: TextStyle(fontFamily: semibold),
           onTap: (value) {
             _currentIndex.value = value;
